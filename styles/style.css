@@ -1,0 +1,1007 @@
+@charset "UTF-8";
+/* **
+    The new CSS reset - version 1.8.2 (last updated 23.12.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+pre {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: "";
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url(./fonts/Montserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url(./fonts/Montserrat/static/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(./fonts/Roboto/Roboto-Light.ttf);
+}
+.head-box {
+  height: 540px;
+  background-image: url(./images/small/Background-small.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+}
+.head-box .nav {
+  display: flex;
+  height: 177px;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  text-align: center;
+}
+.head-box .nav h1 {
+  font-family: "Montserrat-Bold";
+  font-size: 20px;
+  line-height: 24px;
+}
+.head-box .nav .user {
+  padding: 20px 64px 0;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Montserrat-Regular";
+  font-size: 14px;
+  line-height: 38px;
+}
+.head-box .nav .user__signup {
+  width: 90px;
+  height: 36px;
+  border: 2px solid #FFFFFF;
+  border-radius: 40px;
+  text-align: center;
+  line-height: 34px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.head-box .nav .user__signup:hover {
+  background-color: #FFFFFF;
+  color: #000;
+}
+.head-box__content {
+  width: 281px;
+  height: 234px;
+  text-align: center;
+  margin: 27px auto 0;
+}
+.head-box__content h2 {
+  font-family: "Montserrat-Bold";
+  font-size: 30px;
+  line-height: 37px;
+  margin-top: 27px;
+}
+.head-box__content p {
+  font-family: "Roboto-Light";
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 4px;
+  color: #F7F3F2;
+}
+.head-box__content button {
+  width: 278px;
+  height: 38px;
+  border: 2px solid #FF4E50;
+  background: #FF4E50;
+  border-radius: 40px;
+  font-family: "Montserrat-Bold";
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.head-box__content button:hover {
+  background: #FFFFFF;
+  border-radius: 40px;
+  color: #FF4E50;
+}
+
+main .dreamshare-box {
+  margin-top: 34px;
+}
+main .dreamshare-box h2 {
+  text-align: center;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  line-height: 27px;
+}
+main .dreamshare-box__images {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+main .dreamshare-box__images .step-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 240px;
+  padding: 16px 20px;
+}
+main .dreamshare-box__images .step-box button {
+  font-family: "Montserrat-Regular";
+  font-size: 10px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  width: 70px;
+  height: 20px;
+  background: #FF4E50;
+  border-radius: 40px;
+  text-align: center;
+}
+main .dreamshare-box__images .step-box h3 {
+  font-family: "Montserrat-Bold";
+  font-size: 24px;
+  line-height: 14px;
+}
+main .dreamshare-box__images .step-box p {
+  width: 250px;
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  line-height: 14px;
+  color: #E3E3E3;
+  margin-top: 24px;
+}
+main .dreamshare-box__images .step-box:nth-child(1) {
+  background-image: url(./images/small/Step-1-small.png);
+}
+main .dreamshare-box__images .step-box:nth-child(1) h3 {
+  margin-top: 46px;
+}
+main .dreamshare-box__images .step-box:nth-child(2) {
+  background-image: url(./images/small/Step-2-small.png);
+}
+main .dreamshare-box__images .step-box:nth-child(2) h3 {
+  margin-top: 29px;
+}
+main .dreamshare-box__images .step-box:nth-child(3) {
+  background-image: url(./images/small/Step-3-small.png);
+}
+main .dreamshare-box__images .step-box:nth-child(3) h3 {
+  margin-top: 46px;
+}
+main .partner-box {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+main .partner-box h2 {
+  text-align: center;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  line-height: 27px;
+}
+main .partner-box button {
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 280px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 2px solid #FF4E50;
+  border-radius: 40px;
+  color: #FF4E50;
+  font-size: 14px;
+  line-height: 17px;
+  font-family: "Montserrat-Bold";
+  margin-top: 36px;
+}
+main .partner-box button a {
+  width: 280px;
+  height: 40px;
+}
+main .partner-box button:hover {
+  background: #FF4E50;
+  color: #FFFFFF;
+}
+main .partner-box__block {
+  margin-top: 15px;
+  width: 236px;
+  height: 205px;
+}
+main .partner-box__block h3 {
+  font-family: "Montserrat-Bold";
+  font-size: 14px;
+  line-height: 17px;
+  color: #444444;
+  margin-top: 18px;
+}
+main .partner-box__block p {
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  line-height: 14px;
+  color: #666666;
+  margin-top: 21px;
+}
+main .partner-box__block .person-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+main .partner-box__block:nth-child(2) .person-image {
+  background-image: url(./images/small/Bradley-Hunter.png);
+}
+main .partner-box__block:nth-child(3) {
+  height: 224px;
+}
+main .partner-box__block:nth-child(3) .person-image {
+  background-image: url(./images/small/Diana-Wells.png);
+}
+main .partner-box__block:nth-child(4) .person-image {
+  background-image: url(./images/small/Marie-Bennett.png);
+}
+main .partner-box__block:nth-child(5) .person-image {
+  background-image: url(./images/small/Christopher-Pierce.png);
+}
+main .activity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .activity h2 {
+  text-align: center;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  line-height: 27px;
+  width: 200px;
+  margin-top: 34px;
+}
+main .activity__grid {
+  margin-top: 33px;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 120px 120px 120px 120px 120px 120px 120px;
+  row-gap: 10px;
+}
+main .activity__grid h3 {
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  line-height: 27px;
+  color: #FFFFFF;
+  text-align: center;
+}
+main .activity__grid .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .activity__grid .sport {
+  background-image: url(./images/small/Sport.png);
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+main .activity__grid .health {
+  background-image: url(./images/small/Healath.png);
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+main .activity__grid .extreme {
+  background-image: url(./images/small/Extreme.png);
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+main .activity__grid .games {
+  background-image: url(./images/small/Games.png);
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+main .activity__grid .culture {
+  background-image: url(./images/small/Culture.png);
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+main .activity__grid .relaxation {
+  background-image: url(./images/small/Relaxation.png);
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+main .activity__grid .travelling {
+  background-image: url(./images/small/Trevelling.png);
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+main .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .form h2 {
+  text-align: center;
+  font-family: "Montserrat-Bold";
+  font-size: 22px;
+  line-height: 27px;
+  width: 240px;
+  margin-top: 34px;
+}
+main .form p {
+  font-family: "Roboto-Light";
+  font-size: 18px;
+  line-height: 14px;
+  color: #8e8e8e;
+  margin-top: 20px;
+}
+main .form input {
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  margin: 15px 0 11px;
+  width: 280px;
+  height: 40px;
+  border: 1px solid #D4D4D4;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+  border-radius: 3px;
+  padding-left: 12px;
+  color: #999999;
+}
+main .form a {
+  text-align: center;
+  color: #FFFFFF;
+  width: 278px;
+  height: 38px;
+  border: 2px solid #FF4E50;
+  background: #FF4E50;
+  border-radius: 40px;
+  font-family: "Montserrat-Bold";
+  font-size: 14px;
+  line-height: 36px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+main .form a:hover {
+  border-radius: 40px;
+  color: #FF4E50;
+}
+
+footer {
+  height: 226px;
+  border-top: 2px solid #FF4E50;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+footer h3 {
+  color: #FF4E50;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Montserrat-Regular";
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+footer h4 {
+  margin-top: 5px;
+  font-family: "Montserrat-Bold";
+  font-size: 14px;
+  line-height: 17px;
+  color: #444444;
+}
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 190px;
+  color: #999999;
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  line-height: 26px;
+}
+footer .areto {
+  background-image: url(./images/ARETO.png);
+  width: 110px;
+  height: 43px;
+  margin: 14px auto 0;
+}
+
+@media screen and (max-width: 767px) and (min-width: 490px) {
+  .head-box {
+    height: 540px;
+    background-image: url(./images/medium/Background-medium.png);
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 768px) {
+  header .head-box {
+    height: 700px;
+    background-image: url(./images/medium/Background-medium.png);
+  }
+  header .head-box .nav {
+    display: flex;
+    height: 38px;
+    padding: 40px 49px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+  }
+  header .head-box .nav h1 {
+    font-family: "Montserrat-Bold";
+    font-size: 20px;
+    line-height: 36px;
+  }
+  header .head-box .nav .user {
+    padding: 0;
+    width: 154px;
+    justify-content: space-between;
+  }
+  header .head-box__content {
+    width: 470px;
+    height: 252px;
+    text-align: center;
+    margin: 144px auto 0;
+  }
+  header .head-box__content h2 {
+    font-size: 52px;
+    line-height: 63px;
+  }
+  header .head-box__content p {
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+  header .head-box__content button {
+    width: 223px;
+    margin-top: 35px;
+  }
+  main .dreamshare-box {
+    margin-top: 94px;
+  }
+  main .dreamshare-box h2 {
+    text-align: center;
+    font-family: "Montserrat-Bold";
+    font-size: 22px;
+    line-height: 27px;
+  }
+  main .dreamshare-box__images {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  main .dreamshare-box__images .step-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 236px;
+    height: 400px;
+    padding: 16px 20px;
+  }
+  main .dreamshare-box__images .step-box p {
+    width: 196px;
+    margin-top: 29px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(1) {
+    background-image: url(./images/medium/Step-1-\ medium.png);
+    margin-right: 20px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) {
+    background-image: url(./images/medium/Step-2-medium.png);
+    margin-right: 20px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) h3 {
+    margin-top: 16px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) p {
+    margin-top: 23px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(3) {
+    background-image: url(./images/medium/Step-3-medium.png);
+  }
+  main .partner-box {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 510px;
+    margin: 83px auto 0;
+    justify-content: space-around;
+  }
+  main .partner-box button {
+    width: 180px;
+    margin-top: 39px;
+  }
+  main .partner-box button a {
+    width: 180px;
+  }
+  main .partner-box__block {
+    margin-top: 36px;
+  }
+  main .partner-box__block h3 {
+    margin-top: 18px;
+  }
+  main .partner-box__block p {
+    margin-top: 21px;
+  }
+  main .partner-box__block:nth-child(3) {
+    height: 224px;
+  }
+  main .partner-box .activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .partner-box .activity h2 {
+    width: 360px;
+    margin-top: 94px;
+  }
+  main .partner-box .activity__grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 236px 236px 236px;
+    grid-template-rows: 310px 310px 310px;
+    gap: 20px;
+  }
+  main .partner-box .activity__grid .d-flex {
+    padding: 15px;
+  }
+  main .partner-box .activity__grid .sport {
+    background-image: url(./images/medium/Sport.png);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .partner-box .activity__grid .health {
+    background-image: url(./images/medium/Healath.png);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .partner-box .activity__grid .extreme {
+    background-image: url(./images/medium/Extreme.png);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .partner-box .activity__grid .games {
+    background-image: url(./images/medium/Games.png);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  main .partner-box .activity__grid .culture {
+    background-image: url(./images/medium/Culture.png);
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  main .partner-box .activity__grid .relaxation {
+    background-image: url(./images/medium/Relaxation.png);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  main .partner-box .activity__grid .travelling {
+    background-image: url(./images/medium/Trevelling.png);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  main .partner-box .form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 560px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  main .partner-box .form h2 {
+    width: 315px;
+    margin-top: 94px;
+  }
+  main .partner-box .form p {
+    margin-top: 51px;
+  }
+  main .partner-box .form input {
+    margin-top: 27px;
+    width: 300px;
+  }
+  main .partner-box .form a {
+    width: 170px;
+    margin-top: 16px;
+    margin-left: 10px;
+  }
+  footer {
+    padding-top: 38px;
+    height: 226px;
+    border-top: 2px solid #FF4E50;
+    margin-top: 89px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: center;
+  }
+  footer h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  footer h4 {
+    margin-top: 0px;
+    text-align: start;
+  }
+  footer ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 114px;
+  }
+  footer .areto {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  header .head-box {
+    height: 700px;
+    background-image: url(./images/big/Background-big.png);
+  }
+  header .head-box .nav {
+    display: flex;
+    height: 38px;
+    padding: 40px 49px;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+  header .head-box .nav h1 {
+    font-family: "Montserrat-Bold";
+    font-size: 20px;
+    line-height: 36px;
+  }
+  header .head-box .nav .user {
+    padding: 0;
+    width: 154px;
+    justify-content: space-between;
+  }
+  header .head-box__content {
+    width: 470px;
+    height: 252px;
+    text-align: center;
+    margin: 144px auto 0;
+  }
+  header .head-box__content h2 {
+    font-size: 52px;
+    line-height: 63px;
+  }
+  header .head-box__content p {
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+  header .head-box__content button {
+    width: 223px;
+    margin-top: 35px;
+  }
+  main .dreamshare-box {
+    margin-top: 89px;
+  }
+  main .dreamshare-box h2 {
+    text-align: center;
+    font-family: "Montserrat-Bold";
+    font-size: 26px;
+    line-height: 32px;
+  }
+  main .dreamshare-box__images {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  main .dreamshare-box__images .step-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 400px;
+    padding: 20px 25px;
+  }
+  main .dreamshare-box__images .step-box h3 {
+    line-height: 26px;
+  }
+  main .dreamshare-box__images .step-box p {
+    margin-top: 25px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(1) {
+    background-image: url(./images/big/Step-1-big.png);
+    margin-right: 20px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(1) h3 {
+    margin-top: 22px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) {
+    background-image: url(./images/big/Step-2-big.png);
+    margin-right: 20px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) h3 {
+    margin-top: 24px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(2) p {
+    margin-top: 18px;
+  }
+  main .dreamshare-box__images .step-box:nth-child(3) {
+    background-image: url(./images/big/Step-3-big.png);
+  }
+  main .dreamshare-box__images .step-box:nth-child(3) h3 {
+    margin-top: 22px;
+  }
+  main .partner-box {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 960px;
+    margin: 83px auto 0;
+    justify-content: space-around;
+  }
+  main .partner-box h2 {
+    font-size: 26px;
+    width: 960px;
+  }
+  main .partner-box a {
+    order: 5;
+    width: 180px;
+    margin-top: 0px;
+  }
+  main .partner-box a button {
+    width: 180px;
+  }
+  main .partner-box__block {
+    margin-top: 36px;
+  }
+  main .partner-box__block h3 {
+    margin-top: 18px;
+  }
+  main .partner-box__block p {
+    margin-top: 21px;
+  }
+  main .partner-box__block:nth-child(2) {
+    order: 1;
+  }
+  main .partner-box__block:nth-child(2) .person-image {
+    background-image: url(./images/small/Bradley-Hunter.png);
+  }
+  main .partner-box__block:nth-child(3) {
+    order: 3;
+  }
+  main .partner-box__block:nth-child(3) .person-image {
+    background-image: url(./images/small/Diana-Wells.png);
+  }
+  main .partner-box__block:nth-child(4) {
+    order: 2;
+  }
+  main .partner-box__block:nth-child(4) .person-image {
+    background-image: url(./images/small/Marie-Bennett.png);
+  }
+  main .partner-box__block:nth-child(5) {
+    order: 4;
+  }
+  main .partner-box__block:nth-child(5) .person-image {
+    background-image: url(./images/small/Christopher-Pierce.png);
+  }
+  main .activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .activity h2 {
+    font-size: 26px;
+    line-height: 32px;
+    width: 414px;
+    margin-top: 89px;
+  }
+  main .activity__grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 310px 310px 310px;
+    gap: 20px;
+  }
+  main .activity__grid .d-flex {
+    padding: 15px;
+  }
+  main .activity__grid .sport {
+    background-image: url(./images/big/Sport.png);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .activity__grid .health {
+    background-image: url(./images/big/Healath.png);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .activity__grid .extreme {
+    background-image: url(./images/big/Extreme.png);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  main .activity__grid .games {
+    background-image: url(./images/big/Games.png);
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  main .activity__grid .culture {
+    background-image: url(./images/big/Culture.png);
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  main .activity__grid .relaxation {
+    background-image: url(./images/big/Relaxation.png);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  main .activity__grid .travelling {
+    background-image: url(./images/big/Trevelling.png);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  main .form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 560px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  main .form h2 {
+    width: 445px;
+    margin-top: 89px;
+    font-size: 26px;
+    line-height: 32px;
+  }
+  main .form p {
+    margin-top: 53px;
+  }
+  main .form input {
+    margin-top: 27px;
+    width: 300px;
+  }
+  main .form a {
+    width: 170px;
+    margin-top: 16px;
+    margin-left: 10px;
+  }
+}
+footer {
+  padding-top: 38px;
+  height: 226px;
+  border-top: 2px solid #FF4E50;
+  margin: 87px auto 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: center;
+  justify-content: space-around;
+}
+footer h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+footer h4 {
+  margin-top: 0px;
+  text-align: start;
+}
+footer ul {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 114px;
+}
+footer .areto {
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */
